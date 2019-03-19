@@ -1,0 +1,21 @@
+<h1 align="center">All Brothers</h1>
+<div align="center">
+  <%= will_paginate %>
+  <% @users.each do |user| %>
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <div class="card bg-light mb-3">
+            <div class="article-title">
+              <%= link_to user.username, user_path(user) %>
+            </div>
+            <div class="article-body">
+              <%= link_to gravatar_for(user), user_path(user) %>
+            </div>
+              <small><%= pluralize(user.articles.count, "article") if user.articles %>
+              </small>
+            </div>
+          </div>
+        </div>
+  <% end %>
+  <%= will_paginate %>
+</div>
