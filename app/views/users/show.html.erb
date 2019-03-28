@@ -16,6 +16,13 @@
 
 <%= render 'articles/article', obj: @user_articles %>
 
+<% if @user_articles.count < 1 %>
+
+<br>
+<div align="center">You don't have any articles to display</div>
+
+<% end %>
+
 <div align="center">
   <%= will_paginate @user_articles %>
 </div>
