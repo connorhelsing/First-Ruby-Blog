@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
+    if current_user != @user && !current_user.admin?
     flash[:danger] = "You can only edit your own account"
     redirect_to root_path
     end
