@@ -3,6 +3,9 @@
     <%= @article.title %></strong></div>
   <div class="card-body">Description:
     <p class="card-text"><%= simple_format(@article.description) %></p>
+  <% if @article.categories.any? %>
+    <p>Categories: <%= render @article.categories %></p>
+  <% end %>
   </div>
   <div class="article-actions">
   <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
